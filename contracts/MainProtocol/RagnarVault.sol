@@ -5,6 +5,8 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+/// @notice RagnarVault is a simple contract used on testnet only to allow users to mint RGN and YETI tokens.
+
 contract RagnarVault is Ownable {
     address yetiAddress;
     address rgnAddress;
