@@ -29,6 +29,10 @@ import "./imports/LibRoyalties.sol";
               |___/
 */
 
+/// @title RGNLOCK
+/// @author Ragnar Team
+/// @notice RGNLOCK an ERC-721 contract that allows users to burn their RGNs against an Ragnar NFT.
+
 contract RGNLOCK is
 RoyaltiesImpl,
 ERC721,
