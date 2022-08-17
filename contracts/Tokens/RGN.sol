@@ -54,7 +54,7 @@ contract RGN is MintableERC20 {
 
     // RGN is owned by the Masterchief of the protocol, forbidding misuse of this function
     function mint(address _to, uint256 _amount) public override onlyMinters {
-        // TODO : Fix for mainnet
+        // TODO : For mainnet
         /*
         if (totalSupply() + _amount > maxSupplyUpdated + amountConverted) {
             _amount = maxSupplyUpdated + amountConverted - totalSupply();
