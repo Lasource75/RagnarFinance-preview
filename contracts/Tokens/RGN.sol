@@ -81,11 +81,13 @@ contract RGN is MintableERC20 {
         _mint(msg.sender, _amount);
         amountConverted += _amount;
     }
-
+    
+    // TODO : To remove for the mainnet
     function addMinter(address _minter) external onlyOwner {
         minters[_minter] = true;
     }
-
+    
+    // TODO : To remove for the mainnet
     function removeMinter(address _minter) external onlyOwner {
         minters[_minter] = false;
     }
