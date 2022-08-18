@@ -337,7 +337,7 @@ contract YetiBooster is Initializable, OwnableUpgradeable {
         } else {
             harvest(lptoken);
             IMasterChef(masterChef).withdrawFor(poolInfo.receiptToken, amount, sender);
-            IMintableERC20(poolInfo.receiptToken).burn(sender, amount);
+            IMintableERC20(poolInfo.receiptToken).burn(address(this), amount);
             IERC20(lptoken).approve(poolInfo.addressPool, amount);
             IFarm(poolInfo.addressPool).withdraw(amount);
             IERC20(lptoken).safeTransfer(sender, amount);
