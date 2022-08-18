@@ -83,9 +83,6 @@ Ownable
     // Allocation RGN per month
     mapping (uint8 => uint256) public allocByTiers;
 
-    // Counter Generate RGN per month
-    mapping (uint8 => uint256) public generateRgnByTiers;
-
     // List of months for blocking
     uint8[] private timeLockMonth;
 
@@ -289,7 +286,6 @@ Ownable
             return 0;
 
         uint256 rewards = calculateRewardsRgn(rgnLock);
-        generateRgnByTiers[rgnLock.monthLock] = rewards;
 
         if (rewards > 0) {
             rgnLock.lastProcessing = currentTime();
@@ -367,8 +363,7 @@ Ownable
             uint256 multiplier = currentTime() - rgnLock.lastProcessing;
             uint256 rgnReward = (multiplier * rgnPerSec * allocByTiers[rgnLock.monthLock])
             / totalAllocPoint;
-            uint256 accRGNPerShare = generateRgnByTiers[rgnLock.monthLock] + (rgnReward)
-            / totalValueLocked;
+            uint256 accRGNPerShare = rgnReward / totalValueLocked;
             rewards = (rgnLock.rgnLock * accRGNPerShare) / 1e12;
         }
         return rewards;
